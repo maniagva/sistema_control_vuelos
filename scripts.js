@@ -1,39 +1,50 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-    const backToTopButtons = document.querySelectorAll('.back-to-top');
-    const backToLoginButtons = document.querySelectorAll('.back-to-login');
-    const loginForm = document.querySelector('#login form');
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.content-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const backToTop = document.querySelector('.back-to-top');
 
-    function showSection(id) {
+    // Función para cambiar de sección
+    function showSection(sectionId) {
         sections.forEach(section => {
-            section.style.display = section.id === id ? 'block' : 'none';
+            section.classList.toggle('active', section.id === sectionId);
+        });
+
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
         });
     }
 
+    // Manejar clic en navegación
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const targetId = this.getAttribute('href').substring(1);
-            showSection(targetId);
-        });
-    });
-
-    backToTopButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = link.getAttribute('href').substring(1);
+            showSection(sectionId);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 
-    backToLoginButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            showSection('login');
-        });
+    // Manejar scroll para botón "volver arriba"
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('show', window.scrollY > 300);
     });
 
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        showSection('dashboard');
+    // Botón volver arriba
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // Manejar login
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if(username && password.length >= 8) {
+            showSection('dashboard');
+        }
+    });
+
+    // Mostrar sección inicial
     showSection('login');
 });
