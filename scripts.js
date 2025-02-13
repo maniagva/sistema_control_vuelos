@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
+    const backToTopButtons = document.querySelectorAll('.back-to-top');
     const backToLoginButtons = document.querySelectorAll('.back-to-login');
     const loginForm = document.querySelector('#login form');
 
@@ -17,6 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    backToTopButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+
     backToLoginButtons.forEach(button => {
         button.addEventListener('click', function() {
             showSection('login');
@@ -27,5 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         showSection('dashboard');
     });
+
     showSection('login');
 });
