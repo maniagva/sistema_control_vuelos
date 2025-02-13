@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+nav {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.container {
+    padding: 0;
+}
+section {
+    display: none;
+    margin: 0;
+    padding: 40px 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #35424a;
+}
+section p, section form {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #333;
+}
+section form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+section form h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #35424a;
+    text-align: center;
+}
+section form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #35424a;
+}
+section form input, section form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out;
+}
+section form input:focus, section form select:focus {
+    border-color: #35424a;
+    outline: none;
+}
+section form button {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+section form button:hover {
+    background: #2c3e50;
+}
+.back-to-login {
+    background: #121d12;
+    color: #ffffff;
+    padding: 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.back-to-login:hover {
+    background: #968a86;
+}
+.dashboard-section, .gestion-vuelos-section, .gestion-usuarios-section, .configuraciones-section, .notificaciones-section {
+    margin-bottom: 20px;
+}
+.dashboard-section h3, .gestion-vuelos-section h3, .gestion-usuarios-section h3, .configuraciones-section h3, .notificaciones-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #35424a;
+}
+.dashboard-section ul, .gestion-vuelos-section ul, .gestion-usuarios-section ul, .configuraciones-section ul, .notificaciones-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.dashboard-section ul li, .gestion-vuelos-section ul li, .gestion-usuarios-section ul li, .configuraciones-section ul li, .notificaciones-section ul li {
+    background: #f4f4f4;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
