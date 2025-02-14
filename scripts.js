@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Manejar scroll para botón "volver arriba"
     window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('show', window.scrollY > 300);
+        backToTop.classList.toggle('show', window.scrollY > 140);
     });
 
     // Botón volver arriba
