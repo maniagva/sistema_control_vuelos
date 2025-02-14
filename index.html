@@ -90,6 +90,33 @@
                     <button type="submit" class="btn-primary">Guardar Vuelo</button>
                 </form>
             </div>
+            <div class="flight-list-card">
+                <h3>Listado de Vuelos Registrados</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>N° Vuelo</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Bogotá</td>
+                            <td>Medellín</td>
+                            <td class="status-active">Activo</td>
+                        </tr>
+                        <tr>
+                            <td>202</td>
+                            <td>Cali</td>
+                            <td>Cartagena</td>
+                            <td class="status-delayed">Retrasado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- Sección Gestión de Usuarios -->
@@ -107,6 +134,16 @@
                     </div>
                     <button type="submit" class="btn-primary">Crear Usuario</button>
                 </form>
+            </div>
+            <div class="user-list-card">
+                <h3>Usuarios Registrados</h3>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar usuario...">
+                </div>
+                <ul class="user-list">
+                    <li>admin@aero.com <span class="user-role">Administrador</span></li>
+                    <li>operador@aero.com <span class="user-role">Operador</span></li>
+                </ul>
             </div>
         </section>
 
@@ -130,6 +167,20 @@
                         </select>
                     </div>
                     <button type="submit" class="btn-primary">Guardar Configuraciones</button>
+                </form>
+            </div>
+            <div class="form-card" style="margin-top: 2rem;">
+                <h3>Seguridad</h3>
+                <form id="passwordForm">
+                    <div class="input-group">
+                        <label for="currentPassword">Contraseña actual:</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newPassword">Nueva contraseña:</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Actualizar Contraseña</button>
                 </form>
             </div>
         </section>
