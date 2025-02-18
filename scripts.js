@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.content-section');
     const navLinks = document.querySelectorAll('.nav-link');
     const backToTop = document.querySelector('.back-to-top');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mainNav = document.querySelector('.main-nav');
 
     // Función para cambiar de sección
     function showSection(sectionId) {
@@ -117,4 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Actualizar el año del footer automáticamente
     const currentYear = new Date().getFullYear();
     document.getElementById('currentYear').textContent = currentYear;
+
+    // Manejar menú tipo hamburguesa
+    hamburgerMenu.addEventListener('click', () => {
+        hamburgerMenu.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
 });
