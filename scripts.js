@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const sectionId = link.getAttribute('href').substring(1);
             showSection(sectionId);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Contraer el menú tipo hamburguesa
+            if (hamburgerMenu.classList.contains('active')) {
+                hamburgerMenu.classList.remove('active');
+                mainNav.classList.remove('active');
+            }
         });
     });
 
