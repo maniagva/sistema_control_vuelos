@@ -14,6 +14,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background: url('img/imagen_background.jpeg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container {
@@ -26,7 +28,7 @@ body {
 .content-section {
     display: none;
     padding: 2rem;
-    animation: fadeIn 0.3s ease-in;
+    animation: fadeIn 0.5s ease-in-out, slideIn 0.5s ease-in-out;
 }
 
 .content-section.active {
@@ -34,8 +36,13 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
 }
 
 .main-nav {
@@ -43,6 +50,12 @@ body {
     gap: 1.5rem;
     padding: 1rem;
     background: var(--primary-color);
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-link {
@@ -51,6 +64,14 @@ body {
     padding: 0.8rem 1.5rem;
     border-radius: var(--border-radius);
     transition: all 0.3s ease;
+    text-align: center;
+    flex: 1 1 100%;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .nav-link.active {
@@ -61,6 +82,13 @@ body {
 .nav-link:focus {
     outline: 2px dashed var(--accent-color);
     outline-offset: 4px;
+}
+
+@media (min-width: 768px) {
+    .nav-link {
+        flex: 1 1 auto;
+        max-width: auto;
+    }
 }
 
 .auth-card, .form-card {
@@ -83,6 +111,39 @@ body {
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    animation: fadeInUp 0.7s ease-in-out, bounceIn 0.7s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .btn-primary {
@@ -166,17 +227,27 @@ footer {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
+    display: block;
+    overflow-x: auto;
 }
 
 .data-table th, .data-table td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;
 }
 
 .data-table th {
     background: var(--primary-color);
     color: white;
+}
+
+@media (min-width: 768px) {
+    .data-table {
+        display: table;
+        overflow-x: visible;
+    }
 }
 
 .status-active { color: #2ecc71; }
@@ -194,15 +265,25 @@ footer {
 .user-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .user-list li {
     padding: 1rem;
     background: white;
-    margin-bottom: 0.5rem;
     border-radius: var(--border-radius);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.user-list li span {
+    flex: 1 1 100%;
+    text-align: right;
+    margin-top: 0.5rem;
 }
 
 .search-box input {
@@ -230,10 +311,59 @@ footer {
     padding: 2rem;
     border-radius: var(--border-radius);
     text-align: center;
-    animation: slideDown 0.3s ease-in-out;
+    animation: slideDown 0.5s ease-in-out, fadeIn 0.5s ease-in-out;
 }
 
 @keyframes slideDown {
-    from { transform: translateY(-20px); opacity: 0; }
+    from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+.limited-width {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .nav-link {
+        flex: 1 1 auto;
+        max-width: auto;
+    }
+
+    .user-list li span {
+        flex: 0 0 auto;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-card, .form-card, .auth-card, .user-list-card {
+        margin: 1rem 0;
+    }
+
+    .data-table th, .data-table td {
+        padding: 0.5rem;
+    }
+
+    .back-to-top {
+        padding: 0.5rem;
+    }
 }

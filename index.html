@@ -11,10 +11,10 @@
     <header class="main-header">
         <h1>✈️ AeroControl</h1>
         <nav class="main-nav">
-            <a href="#login" class="nav-link active">Login</a>
+            <a href="#login" class="nav-link active">Inicio</a>
             <a href="#dashboard" class="nav-link">Dashboard</a>
-            <a href="#gestion-vuelos" class="nav-link">Vuelos</a>
-            <a href="#gestion-usuarios" class="nav-link">Usuarios</a>
+            <a href="#gestion-vuelos" class="nav-link">Gestion de Vuelos</a>
+            <a href="#gestion-usuarios" class="nav-link">Gestion de Usuarios</a>
             <a href="#configuraciones" class="nav-link">Configuraciones</a>
             <a href="#notificaciones" class="nav-link">Notificaciones</a>
         </nav>
@@ -37,6 +37,24 @@
                     <button type="submit" class="btn-primary">Ingresar</button>
                 </form>
             </div>
+            <div class="auth-card" style="margin-top: 2rem;">
+                <h2>Registro</h2>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <label for="newUsername">Nombre de Usuario:</label>
+                        <input type="text" id="newUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newEmail">Correo Electrónico:</label>
+                        <input type="email" id="newEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newPassword">Contraseña:</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Registrar</button>
+                </form>
+            </div>
         </section>
 
         <!-- Sección Dashboard -->
@@ -49,7 +67,6 @@
                         <li>Vuelo 101 - Bogotá → Medellín</li>
                         <li>Vuelo 202 - Cali → Cartagena</li>
                         <li>Vuelo 505 - Bogotá → Cali</li> 
-                        <li>Vuelo 606 - Medellín → Cartagena</li>
                     </ul>
                 </div>
                 <div class="status-card">
@@ -62,6 +79,7 @@
                     <h3>Vuelos Cancelados</h3>
                     <ul class="data-list">
                         <li>Vuelo 404 - Medellín → Cali</li>
+                        <li>Vuelo 606 - Medellín → Cartagena</li>
                     </ul>
                 </div>
                 <div class="status-card">
@@ -114,13 +132,24 @@
                             <td>202</td>
                             <td>Cali</td>
                             <td>Cartagena</td>
-                            <td class="status-delayed">Retrasado</td>
+                            <td class="status-active">Activo</td>
                         </tr>
                         <tr>
                             <td>505</td>
                             <td>Bogotá</td>
                             <td>Cali</td>
                             <td class="status-active">Activo</td>
+                        </tr>
+                        <tr>
+                            <td>303</td>
+                            <td>Barranquilla</td>
+                            <td>Bogotá</td>
+                            <td class="status-delayed">Retrasado</td>
+                        <tr>
+                            <td>404</td>
+                            <td>Medellin</td>
+                            <td>Cali</td>
+                            <td class="status-cancelled">Cancelado</td>
                         </tr>
                         <tr>
                             <td>606</td>
@@ -149,7 +178,7 @@
                     <button type="submit" class="btn-primary">Crear Usuario</button>
                 </form>
             </div>
-            <div class="user-list-card">
+            <div class="user-list-card limited-width">
                 <h3>Usuarios Registrados</h3>
                 <div class="search-box">
                     <input type="text" placeholder="Buscar usuario...">
@@ -157,6 +186,11 @@
                 <ul class="user-list">
                     <li>admin@aero.com <span class="user-role">Administrador</span></li>
                     <li>operador@aero.com <span class="user-role">Operador</span></li>
+                    <li>usuario1@aero.com <span class="user-role">Usuario</span></li>
+                    <li>usuario2@aero.com <span class="user-role">Usuario</span></li>
+                    <li>usuario3@aero.com <span class="user-role">Usuario</span></li>
+                    <li>usuario4@aero.com <span class="user-role">Usuario</span></li>
+                    <li>usuario5@aero.com <span class="user-role">Usuario</span></li>
                 </ul>
             </div>
         </section>
@@ -202,7 +236,7 @@
         <!-- Sección Notificaciones -->
         <section id="notificaciones" class="content-section">
             <h2>Notificaciones</h2>
-            <div class="status-card">
+            <div class="status-card limited-width">
                 <h3>Últimas Notificaciones</h3>
                 <ul class="data-list">
                     <li>Vuelo 101 ha aterrizado.</li>
@@ -214,7 +248,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 AeroControl. Todos los derechos reservados. Desarrollado por Giovasdev</p>
+        <p>&copy; <span id="currentYear"></span> AeroControl. Todos los derechos reservados. Desarrollado por Giovasdev</p>
     </footer>
 
     <button class="back-to-top" aria-label="Volver arriba">

@@ -48,6 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Manejar registro
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newUsername = document.getElementById('newUsername').value;
+        const newEmail = document.getElementById('newEmail').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        if(validarRegistro(newUsername, newEmail, newPassword)) {
+            mostrarConfirmacion('Usuario registrado exitosamente');
+        } else {
+            mostrarConfirmacion('Por favor, complete todos los campos correctamente');
+        }
+    });
+
+    // Función para validar el formulario de registro
+    function validarRegistro(username, email, password) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return username.trim() !== '' && emailRegex.test(email) && password.length >= 8;
+    }
+
     // Mostrar sección inicial
     showSection('login');
 
@@ -93,4 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         document.body.appendChild(modal);
     }
+
+    // Actualizar el año del footer automáticamente
+    const currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
 });
